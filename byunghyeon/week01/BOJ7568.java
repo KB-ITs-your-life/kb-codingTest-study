@@ -1,4 +1,11 @@
 package week01;
+
+/*
+* BOJ7568 덩치
+* 알고리즘 - 브루트포스
+* 몸무게와 키가 큰 사람들의 수를 구해서 등수를 구한다.
+* */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
