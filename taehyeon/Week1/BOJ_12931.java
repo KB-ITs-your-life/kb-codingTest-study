@@ -3,6 +3,7 @@ package Week1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /* 그리디 알고리즘
@@ -45,6 +46,29 @@ public class BOJ_12931 {
         for(int i=0;i<n;i++){
             arrB[i]=Integer.parseInt(input[i]);
         }
+        int count=0;
+        int temp = 0;
+        boolean oddFlag=false;
+        while(Arrays.stream(arrB).sum()>0){
+            temp=0;
+            for(int i=0;i<n;i++){
+                if(arrB[i]%2!=0){
+                    arrB[i]=arrB[i]-1;
+                    count++;
+                }
+
+            }
+            for(int i=0;i<n;i++){
+                if(arrB[i]!=0 && arrB[i] % 2 == 0){
+                    arrB[i]=arrB[i]/2;
+                    temp=1;
+                }
+            }
+            count=count+temp;
+
+
+        }
+        System.out.println(count);
 
     }
 
