@@ -13,7 +13,7 @@ public class BOJ1260 {
     static int N, M, V;
     static boolean[] isVisited;
     static StringBuilder answer = new StringBuilder();
-    static ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+    static ArrayList<ArrayList<Integer>> list = new ArrayList<>(); // 인접 리스트
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -26,24 +26,24 @@ public class BOJ1260 {
             list.add(new ArrayList<>());
         }
 
-        // 무방향 그래프
+
         int start, end;
         for(int i = 0; i < M; i++){
             st = new StringTokenizer(br.readLine());
             start = Integer.parseInt(st.nextToken())-1;
             end = Integer.parseInt(st.nextToken())-1;
 
-            list.get(start).add(end);
+            list.get(start).add(end); // 무방향 그래프
             list.get(end).add(start);
         }
 
         for(int i = 0; i < N; i++){
-            Collections.sort(list.get(i));
+            Collections.sort(list.get(i)); // 각 리스트마다 오름차순으로 정렬
         }
 
-        isVisited = new boolean[N];
+        isVisited = new boolean[N]; // 방문 여부 초기화
         dfs1260();
-        isVisited = new boolean[N];
+        isVisited = new boolean[N]; // 방문 여부 초기화
         bfs1260();
         System.out.println(answer);
     }
@@ -56,7 +56,7 @@ public class BOJ1260 {
             if(isVisited[poll]) continue;
 
             isVisited[poll] = true;
-            answer.append(poll+1).append(" ");
+            answer.append(poll+1).append(" "); // 방문한 순서대로 정답에 삽입
 
             ArrayList<Integer> integers = list.get(poll);
             for (Integer integer : integers) {
@@ -75,11 +75,11 @@ public class BOJ1260 {
             if(isVisited[pop]) continue;
 
             isVisited[pop] = true;
-            answer.append(pop+1).append(" ");
+            answer.append(pop+1).append(" "); // 방문한 순서대로 정답에 삽입
 
             ArrayList<Integer> integers = list.get(pop);
 
-            for(int i = integers.size()-1; i >= 0; i--){
+            for(int i = integers.size()-1; i >= 0; i--){ // 낮은 숫자부터 정답에 넣어야 하기에 큰 수부터 삽입
                 int element = integers.get(i);
                 stack.add(element);
             }
