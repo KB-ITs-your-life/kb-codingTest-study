@@ -16,6 +16,7 @@ public class CT_28278 {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        String str = br.readLine();
+
 //        System.out.println(str);
         //BufferReader의 readLine() 메소드를 이용하여 사용자 입력 한 줄을 받는다.
         //근데 입력받을 때 명령어가 숫자이기에 String -> Integer 변환이 필요하다.
