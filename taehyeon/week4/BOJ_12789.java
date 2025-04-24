@@ -12,6 +12,10 @@ public class BOJ_12789 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
+
+        //배열인데 양끝에서 데이터를 추가하고 제거할 수 있다.
+        //양끝에서 삽입 추출은 시간복잡도가 O(1)이라 사용 <-> LinkedList보다 삽입속도 월등.
+
         ArrayDeque<Integer> line=new ArrayDeque<>();
         ArrayDeque<Integer> space=new ArrayDeque<>();
 
