@@ -15,26 +15,33 @@ public class BOJ_1309 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N=Integer.parseInt(br.readLine());
 
-        int[][] lion=new int[N+1][N+1]; // [동물의수][우리 크기]
-        //최대로 들어갈 수 있는 사자는 N마리이다.
-        //0마리에서 N마리까지 반복..?
-        //0마리이면 경우의 수 1개
-        lion[0][0]=1;
-        //1마리이면 경우의 수 = 우리 개수
 
-        for(int i=2;i<=N;i++){
-            lion[i][i]=2;
+        //추가되는 칸을 기준으로 계산한다.
+        // 공백 , 왼쪽에 채우기, 오른쪽에 채우기
+        long[] dp = new long[N+2];
+        dp[0]=1;
+        dp[1]=3;
+        dp[2]=7;
+
+        /*  n=3 일때
+            추가되는 칸 공백 : 7
+            왼쪽 채우기 : 5
+            오른쪽 채우기 : 5
+            dp[3]=17
+
+            n=4
+            공백 : 17
+            왼쪽 : 12
+            오른쪽 : 12
+            dp[4]= 41
+
+            : dp[n]=dp[n-1]*2+dp[n-2]
+        */
+        for(int i=3;i<=N;i++){
+            dp[i]=(dp[i-1]*2+dp[i-2])%9901;
         }
-        // 점화식
-        // (현재 동물 N에 동물 i마리 들어가는 경우의수) =
-        // (n-2크기에 i-1마리) * 2 + (n-1크기에 i마리) + (((N-(i-1))*2-1)*2)(=맨위에서부터 동물적재)
-        for(int k=2;k<=N;k++){  //크기
-            for(int i=2;i<=N;i++){
-                lion[k][i]=(lion[k-2][i-1]*2)+lion[k-1][i]+((k-(i-1))*2-1)*2;
-                System.out.println("k : "+k+" i : "+i+" lion : "+lion[k][i]);
-            }
-        }
-        System.out.println(lion[N][N]);
+        System.out.println(dp[N]);
+
 
 
 
