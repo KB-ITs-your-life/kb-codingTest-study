@@ -8,7 +8,7 @@ while (num <= n):
     if len(line) > 0 and line[-1] == num:
         line.pop()
         num += 1
-    elif students[-1] == num :
+    elif len(students) > 0 and students[-1] == num :
         students.pop()
         num += 1
     else:
@@ -24,5 +24,5 @@ while (num <= n):
             print("Sad")
             break
 
-print("Nice")
+if num == n + 1: print("Nice")
         
