@@ -1,4 +1,4 @@
-package week6_7;
+package week6;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

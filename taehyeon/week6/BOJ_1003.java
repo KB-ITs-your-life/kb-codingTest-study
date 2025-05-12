@@ -1,8 +1,9 @@
-package week6_7;
+package week6;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class BOJ_1003 {
     static int[] n1=new int[41];  // n1[i] = fib(i)에서 0이 출력되는 횟수
