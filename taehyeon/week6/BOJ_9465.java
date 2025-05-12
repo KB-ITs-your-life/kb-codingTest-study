@@ -15,34 +15,25 @@ public class BOJ_9465 {
         StringTokenizer st;
 
         //스티커를 2차원으로 받아야하나? 인덱스랑 값을 같이,,,,받?
-        HashMap<Integer,Integer> sticker1 = new HashMap<>();
-        HashMap<Integer,Integer> sticker2 = new HashMap<>();
-        HashMap[] stickers = new HashMap[2];
+        int[][] sticker;
 
         int T=Integer.parseInt(br.readLine());
         for(int t=0;t<T;t++){
             //스티커 입력받기
             int n=Integer.parseInt(br.readLine());
+            sticker=new int[2][n];
 
             st=new StringTokenizer(br.readLine());
             for(int i=0;i<n;i++){
-                sticker1.put(i,Integer.parseInt(st.nextToken()));
+                sticker[0][i]=Integer.parseInt(st.nextToken());
             }
-
-
-            stickers[0]=sticker1;
 
             st=new StringTokenizer(br.readLine());
             for(int i=0;i<n;i++){
-                sticker2.put(i,Integer.parseInt(st.nextToken()));
+                sticker[1][i]=Integer.parseInt(st.nextToken());
             }
-            stickers[1]=sticker2;
 
-            int sum=0;
 
-            // 풀이.
-            // 특정 n에서 위아래 중 큰 점수 선택했을 때.??
-            //
 
 
 
