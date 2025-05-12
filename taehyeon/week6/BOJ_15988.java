@@ -8,7 +8,7 @@ public class BOJ_15988 {
     static long[]dp;
 
     static long sum(int n){
-        dp=new long[n+2];
+        dp=new long[n+3];
         dp[1]=1;
         dp[2]=2;
         dp[3]=4;
