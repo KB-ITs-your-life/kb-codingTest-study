@@ -29,6 +29,7 @@ public class BOJ_2156 {
 
         // 연속 3잔은 못먹는다
         // i번째 잔을 먹으려면
+
         // dp[i-2] + wine[i] 와 wine[i-1]+wine[i]+dp[i-3]
 
 
