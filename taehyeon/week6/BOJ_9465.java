@@ -13,6 +13,8 @@ public class BOJ_9465 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
+        int[][] sticker;
+        int[][] dp;
 
         int[][] sticker;
         int[][] dp;
