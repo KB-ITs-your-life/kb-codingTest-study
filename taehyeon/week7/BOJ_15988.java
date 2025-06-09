@@ -21,6 +21,7 @@ public class BOJ_15988 {
 
         return dp[n];
 
+
     }
 
     public static void main(String[] args) throws IOException {
