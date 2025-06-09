@@ -14,6 +14,8 @@ public class BOJ_9465 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
+        int[][] sticker;
+        int[][] dp;
 
 
         int T=Integer.parseInt(br.readLine());
@@ -33,6 +35,12 @@ public class BOJ_9465 {
             for(int i=0;i<n;i++){
                 sticker[1][i]=Integer.parseInt(st.nextToken());
             }
+            // 기저 조건
+            dp[0][0]=sticker[0][0];
+            dp[1][0]=sticker[1][0];
+
+            dp[0][1]=sticker[1][0]+sticker[0][1];
+            dp[1][1]=sticker[0][0]+sticker[1][1];
 
 
             dp[0][1]=sticker[1][0]+sticker[0][1];
@@ -44,7 +52,6 @@ public class BOJ_9465 {
             }
 
             System.out.println(Math.max(dp[0][n-1],dp[1][n-1]));
-
 
             /* 풀이 : n=i
 
