@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_11404 {
-    static final int INF = 987654321;
     static int N;
     static int M;
     static int[][] dist;
@@ -25,7 +24,7 @@ public class BOJ_11404 {
                     dist[i][j]=0;
                     continue;
                 }
-                dist[i][j]=INF;
+                dist[i][j]=100001;
 
             }
         }
@@ -50,7 +49,7 @@ public class BOJ_11404 {
         }
         for(int i=1;i<=N;i++){
             for(int j=1;j<=N;j++){
-                if(dist[i][j]==INF){
+                if(dist[i][j]==100001){
                     System.out.print(0+" ");
                 }else{
                     System.out.print(dist[i][j]+" ");

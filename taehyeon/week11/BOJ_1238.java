@@ -72,8 +72,11 @@ public class BOJ_1238 {
         - 단방향이기 때문에 갈때랑 올때를 따로 구해야 한다.
         - 갈 때 X에 도달하면 멈춰야 한다
         */
+
+
         for(int i=1;i<=n;i++){
-            //distGo[i]를 구하는 것. i번째 도시에서 x번째 도시까지 가는 최소거리.
+            // distGo[i]를 구하는 것. i번째 도시에서 x번째 도시까지 가는 최소거리.
+
 
             // 파티마을에서 출발이라면 각 마을까지 얼마나 걸리는 지 확인하는것도? 낫배든가
             if(i==x){
@@ -94,9 +97,9 @@ public class BOJ_1238 {
             while(!pqGo.isEmpty()){
                 Node curNode=pqGo.poll();
                 // 만약 현재 위치한 노드가 파티 마을이면
-                if(curNode.start==x){
+                if(curNode.end==x){
                     // 현재 마을의 거리를 distGo에 넣어 버림.
-                    distGo[i]=tempDist[curNode.start];
+                    distGo[i]=tempDist[curNode.end];
                     break;
                 }
                 for(int j=0;j<roads[curNode.end].size();j++){
@@ -107,7 +110,7 @@ public class BOJ_1238 {
                     }
                 }
             }
-
+            distGo[x]=0;
         }
 
 
@@ -116,8 +119,27 @@ public class BOJ_1238 {
 
         // 파티에서 돌아오는 거리 구하기.
         PriorityQueue<Node> pqComeback=new PriorityQueue<>();
-        pqComeback.add(new Node(x,0,0));
+        pqComeback.add(new Node(0,x,0));
+        while(!pqComeback.isEmpty()){
+            Node curNodeComeBack=pqComeback.poll();
+            for(Node nextNode:roads[curNodeComeBack.end]){
+                if(nextNode.weight+curNodeComeBack.weight<distComeback[nextNode.end]){
+                    distComeback[nextNode.end]=nextNode.weight+curNodeComeBack.weight;
+                    pqComeback.add(new Node(nextNode.start,nextNode.end,distComeback[nextNode.end]));
+                }
+            }
+        }
+        distComeback[x]=0;
 
+//        for(int i=1;i<=n;i++){
+//
+//            System.out.println(i+" "+distGo[i]+" "+distComeback[i]);
+//        }
+        int max=0;
+        for(int i=1;i<=n;i++){
+            max=Math.max(max,distComeback[i]+distGo[i]);
+        }
+        System.out.println(max);
 
 
 
